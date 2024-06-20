@@ -62,12 +62,20 @@
     function openWindow() {
     }
 
-    async function getFriendship() {
+    async function getFriendship() { //บอกว่าคุณเป็นเพื่อนกับ Chatbot รึยัง
+      const friend = await liff.getFriendship()
+
+      document.getElementById("friendship").append(friend.friendFlag)
+      if(!friend.friendFlag){
+        if(confirm("You are not add BOT as a friend. Do you wanna add now?")){
+          window.location = "https://line.me/R/ti/p/@365ohfst"
+        }
+      }
     }
 
     async function sendMsg() {
       if (liff.getContext().type !== "none"){ //เราจะส่ง msg กลับไปได้ในกรณีที่ค่า Type ไม่เป็น none เท่านั้น
-        await liff.sendMessages([
+        await liff.sendMessages([ //** เราสามารถบรรจุได้สูงสุด 5 bubbles เท่านั้น 
           {
             "type": "sticker",
             "stickerId": 1,
@@ -119,7 +127,7 @@
       getEnvironment()
       getUserProfile()
       getContext() //บริบทในการส่ง Msg ของ user
-      // getFriendship()
+      getFriendship()
       // createUniversalLink()
     }
     main()
