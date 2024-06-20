@@ -81,10 +81,11 @@
       document.getElementById("accessToken").append(liff.getAccessToken()) //Security
       document.getElementById("isInClient").append(liff.isInClient()) //ตัวบอกวิธีการเปิด liff ของ user (line / external bw.)
 
+      console.log("Log:", liff.isInClient())
       if(liff.isInClient()){
-        document.getElementById("btnLogOut").style.display = none;
+        document.getElementById("btnLogOut").style.display = "none";
       }else{
-        document.getElementById("btnMsg").style.display = none;
+        document.getElementById("btnMsg").style.display = "none";
       }
       
     }
