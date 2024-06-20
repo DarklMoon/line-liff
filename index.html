@@ -53,7 +53,8 @@
     function logOut() {
     }
 
-    function closed() {
+    function closed() {//ช่วยให้ liff safe ขึ้น เพราะมันจะล้าง Token ให้เมื่อปิด liff
+      liff.closeWindow()
     }
 
     async function scanCode() {
