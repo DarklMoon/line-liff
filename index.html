@@ -66,6 +66,17 @@
     }
 
     async function sendMsg() {
+      if (liff.getContext().type !== "none"){ //เราจะส่ง msg กลับไปได้ในกรณีที่ค่า Type ไม่เป็น none เท่านั้น
+        await liff.sendMessages([
+          {
+            "type": "sticker",
+            "stickerId": 1,
+            "packageId": 1,
+
+          }
+        ])
+        alert("Message sent");
+      }
     }
 
     function getContext() {
@@ -82,7 +93,7 @@
         document.getElementById("pictureUrl").src = profile.pictureUrl
         document.getElementById("userId").append(profile.userId)
         document.getElementById("statusMessage").append(profile.statusMessage)
-        document.getElementById("displayName").append(profile.displayName)
+        document.getElementById("displayName").append(profile.displayName)  
         document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
     }
 
