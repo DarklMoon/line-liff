@@ -59,7 +59,11 @@
     async function scanCode() {
     }
 
-    function openWindow() {
+    function openWindow() { //The way to open Browser
+      liff.openWindow({
+        url: "https://line.me",
+        external: true //ตัวกำหนดว่า เราจะเปิดแบบ InApp or ExternalBrowser
+      })
     }
 
     async function getFriendship() { //บอกว่าคุณเป็นเพื่อนกับ Chatbot รึยัง
