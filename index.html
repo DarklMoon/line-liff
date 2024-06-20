@@ -69,6 +69,12 @@
     }
 
     function getContext() {
+      document.getElementById("type").append(liff.getContext().type) //บอกว่า คุณกำลังสนทนาแบบตัวต่อตัวอยู่
+      document.getElementById("viewType").append(liff.getContext().viewType) //liff ของคุณเลือก view แบบไหน
+      document.getElementById("utouId").append(liff.getContext().utouId) //id จากช่องแชทที่เราคุยแบบ one:one
+      document.getElementById("roomId").append(liff.getContext().roomId) //id จากช่องแชทที่เราคุยแบบ room เช่น แชร์ไปให้เพื่อน
+      document.getElementById("groupId").append(liff.getContext().groupId) //id จากช่องแชทที่เราคุยแบบ group เช่น แชร์ไปให้เพื่อนในกลุ่ม
+      
     }
 
     async function getUserProfile() {
@@ -101,7 +107,7 @@
       await liff.init({ liffId: "2005649189-pDorG0nR" }) //setup
       getEnvironment()
       getUserProfile()
-      // getContext()
+      getContext() //บริบทในการส่ง Msg ของ user
       // getFriendship()
       // createUniversalLink()
     }
