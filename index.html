@@ -48,6 +48,12 @@
     }
 
     async function shareMsg() {
+      await liff.shareTargetPicker([ //share ได้สูงสุด 5 bubbles
+        {
+          "type": "text",
+          "text": "This msg was sent by ShareTargetPicker"
+        }
+      ])
     }
 
     function logOut() {
