@@ -45,6 +45,12 @@
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
     function createUniversalLink() {
+      const link1 = liff.permanentLink.createUrl() //ตัว generate URL ปัจจุบันให้เป็น Universal Link
+      document.getElementById("universalLink1").append(link1)
+
+      liff.permanentLink.setExtraQueryParam("param=9&id=5")
+      const link2 = liff.permanentLink.createUrl()
+      document.getElementById("universalLink2").append(link2)
     }
 
     async function shareMsg() {
@@ -144,7 +150,7 @@
         getUserProfile()
         getContext() //บริบทในการส่ง Msg ของ user
         getFriendship()
-        // createUniversalLink()
+        createUniversalLink()
       }else{
         liff.login()
       }
