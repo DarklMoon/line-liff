@@ -51,6 +51,8 @@
     }
 
     function logOut() {
+      liff.logout()
+      window.location.reload()
     }
 
     function closed() {//ช่วยให้ liff safe ขึ้น เพราะมันจะล้าง Token ให้เมื่อปิด liff
@@ -129,13 +131,17 @@
     }
 
     async function main() {
-      alert("LINE Developers x Skooldio")
       await liff.init({ liffId: "2005649189-pDorG0nR" }) //setup
-      getEnvironment()
-      getUserProfile()
-      getContext() //บริบทในการส่ง Msg ของ user
-      getFriendship()
-      // createUniversalLink()
+      document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+      if(liff.isLoggedIn()){
+        getEnvironment()
+        getUserProfile()
+        getContext() //บริบทในการส่ง Msg ของ user
+        getFriendship()
+        // createUniversalLink()
+      }else{
+        liff.login()
+      }
     }
     main()
   </script>
